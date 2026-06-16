@@ -1,16 +1,100 @@
-# React + Vite
+# Cinventory - Warehouse Management System (WMS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deskripsi
+Cinventory adalah aplikasi Warehouse Management System (WMS) berbasis web yang digunakan untuk membantu pengelolaan inventaris barang di gudang. Sistem ini memungkinkan pengguna untuk mengelola data produk, kategori, supplier, lokasi penyimpanan, transaksi barang masuk, barang keluar, serta memantau pergerakan stok secara real-time.
 
-Currently, two official plugins are available:
+Aplikasi ini dirancang untuk meningkatkan efisiensi pengelolaan stok, mengurangi kesalahan pencatatan, dan menyediakan informasi inventaris yang akurat bagi perusahaan.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Fitur
 
-## React Compiler
+### Authentication & Authorization
+* Login dan Logout
+* JWT Authentication
+* Role Based Access Control (Admin, Manager, Cashier)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### User Management
+* CRUD User
+* Manajemen Role Pengguna
 
-## Expanding the ESLint configuration
+### Master Data
+* CRUD Kategori Barang
+* CRUD Supplier
+* CRUD Lokasi Penyimpanan
+* CRUD Produk
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Inventory Management
+* Barang Masuk (Goods Receipt)
+* Barang Keluar (Goods Issue)
+* Transfer Antar Lokasi
+* Update Stok Otomatis
+
+### Stock Movement
+* Riwayat Pergerakan Stok
+* Filter Berdasarkan Tanggal
+* Filter Berdasarkan Tipe Transaksi
+* Pencarian Data
+
+### Dashboard
+* Total Produk
+* Total Supplier
+* Total Kategori
+* Statistik Barang Masuk
+* Statistik Barang Keluar
+* Statistik Pergerakan Stok
+
+### Activity Log
+* Pencatatan Aktivitas Pengguna
+* Monitoring Aktivitas Sistem
+
+## ERD (Entity Relationship Diagram)
+<img width="701" height="1651" alt="shema diagram cinventory" src="https://github.com/user-attachments/assets/29e0368c-98c3-4407-8f89-83c50de4d395" />
+![ERD Cinventory](https://github.com/user-attachments/assets/29e0368c-98c3-4407-8f89-83c50de4d395)
+
+## Tech Stack
+
+### Frontend
+* React.js
+* React Router DOM
+* Tailwind CSS
+* Axios
+* SweetAlert2
+* Lucide React
+
+### Backend
+* Node.js
+* Express.js
+* JWT Authentication
+* Bcrypt
+
+### Database
+* PostgreSQL
+* Supabase PostgreSQL
+
+### Development Tools
+* Visual Studio Code
+* Postman
+* Git
+* GitHub
+* PNPM
+
+## Installation
+
+### Clone Repository
+https://github.com/sintiaarganii/cinventory-fe.git
+https://github.com/sintiaarganii/cinventory-be.git
+
+### Backend
+cd cinventory-be
+pnpm install
+pnpm dev
+
+### Frontend
+cd cinventory-fe
+pnpm install
+pnpm dev
+
+## Author
+
+**Sintia Dwi Argani**
+
+Project Warehouse Management System (WMS) - Cinventory
