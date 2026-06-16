@@ -166,7 +166,10 @@ const ActivityLogs = () => {
         <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 mb-6">
           <div className="flex flex-col md:flex-row gap-4 justify-between">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
+              <Search
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"
+                size={18}
+              />
               <input
                 type="text"
                 placeholder="Search by user, activity, module, or description..."
@@ -202,19 +205,34 @@ const ActivityLogs = () => {
           <div className="bg-white rounded-xl shadow-md p-4 border-l-4 border-blue-500">
             <p className="text-slate-500 text-sm">Create/Update</p>
             <p className="text-2xl font-bold text-slate-800">
-              {logs.filter(l => l.activity_type?.toUpperCase() === "CREATE" || l.activity_type?.toUpperCase() === "UPDATE").length}
+              {
+                logs.filter(
+                  (l) =>
+                    l.activity_type?.toUpperCase() === "CREATE" ||
+                    l.activity_type?.toUpperCase() === "UPDATE",
+                ).length
+              }
             </p>
           </div>
           <div className="bg-white rounded-xl shadow-md p-4 border-l-4 border-red-500">
             <p className="text-slate-500 text-sm">Deletions</p>
             <p className="text-2xl font-bold text-slate-800">
-              {logs.filter(l => l.activity_type?.toUpperCase() === "DELETE").length}
+              {
+                logs.filter((l) => l.activity_type?.toUpperCase() === "DELETE")
+                  .length
+              }
             </p>
           </div>
           <div className="bg-white rounded-xl shadow-md p-4 border-l-4 border-purple-500">
             <p className="text-slate-500 text-sm">Approvals</p>
             <p className="text-2xl font-bold text-slate-800">
-              {logs.filter(l => l.activity_type?.toUpperCase() === "APPROVE" || l.activity_type?.toUpperCase() === "REJECT").length}
+              {
+                logs.filter(
+                  (l) =>
+                    l.activity_type?.toUpperCase() === "APPROVE" ||
+                    l.activity_type?.toUpperCase() === "REJECT",
+                ).length
+              }
             </p>
           </div>
         </div>
@@ -232,7 +250,8 @@ const ActivityLogs = () => {
                     User Activity History
                   </h2>
                   <p className="text-sm text-slate-500 mt-0.5">
-                    Showing {currentItems.length} of {filteredLogs.length} entries
+                    Showing {currentItems.length} of {filteredLogs.length}{" "}
+                    entries
                   </p>
                 </div>
               </div>
@@ -247,7 +266,10 @@ const ActivityLogs = () => {
               <div className="relative inline-block">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Activity size={20} className="text-emerald-600 animate-pulse" />
+                  <Activity
+                    size={20}
+                    className="text-emerald-600 animate-pulse"
+                  />
                 </div>
               </div>
               <p className="mt-4 text-slate-500">Loading activity logs...</p>
@@ -257,8 +279,12 @@ const ActivityLogs = () => {
               <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Activity size={32} className="text-slate-400" />
               </div>
-              <p className="text-slate-500 font-medium">No activity logs found</p>
-              <p className="text-sm text-slate-400 mt-1">Try adjusting your search or filter</p>
+              <p className="text-slate-500 font-medium">
+                No activity logs found
+              </p>
+              <p className="text-sm text-slate-400 mt-1">
+                Try adjusting your search or filter
+              </p>
             </div>
           ) : (
             <>
@@ -266,11 +292,21 @@ const ActivityLogs = () => {
                 <table className="w-full">
                   <thead>
                     <tr className="bg-slate-50 border-b border-slate-200">
-                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">User</th>
-                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">Activity</th>
-                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">Module</th>
-                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">Description</th>
-                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">Date & Time</th>
+                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">
+                        User
+                      </th>
+                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">
+                        Activity
+                      </th>
+                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">
+                        Module
+                      </th>
+                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">
+                        Description
+                      </th>
+                      <th className="text-left p-4 text-slate-600 font-semibold text-sm">
+                        Date & Time
+                      </th>
                     </tr>
                   </thead>
 
@@ -294,7 +330,7 @@ const ActivityLogs = () => {
                         <td className="p-4">
                           <span
                             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${getBadgeColor(
-                              log.activity_type
+                              log.activity_type,
                             )}`}
                           >
                             <span>{getActivityIcon(log.activity_type)}</span>
@@ -321,13 +357,18 @@ const ActivityLogs = () => {
                           <div className="flex items-center gap-2 text-slate-500">
                             <Calendar size={14} className="text-slate-400" />
                             <span className="text-sm">
-                              {new Date(log.created_at).toLocaleString("en-US", {
-                                year: "numeric",
-                                month: "short",
-                                day: "numeric",
-                                hour: "2-digit",
-                                minute: "2-digit",
-                              })}
+                              {(() => {
+                                const date = new Date(log.created_at);
+                                // Tambah 7 jam untuk WIB
+                                date.setHours(date.getHours() + 7);
+                                return date.toLocaleString("id-ID", {
+                                  year: "numeric",
+                                  month: "short",
+                                  day: "numeric",
+                                  hour: "2-digit",
+                                  minute: "2-digit",
+                                });
+                              })()}
                             </span>
                           </div>
                         </td>
@@ -345,14 +386,18 @@ const ActivityLogs = () => {
                   </div>
                   <div className="flex gap-2">
                     <button
-                      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                      onClick={() =>
+                        setCurrentPage((prev) => Math.max(prev - 1, 1))
+                      }
                       disabled={currentPage === 1}
                       className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
                       <ChevronLeft size={18} />
                     </button>
                     <button
-                      onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                      onClick={() =>
+                        setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                      }
                       disabled={currentPage === totalPages}
                       className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
@@ -373,8 +418,12 @@ const ActivityLogs = () => {
                 <Clock size={16} className="text-blue-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-700">Activity Retention</p>
-                <p className="text-xs text-slate-500">Logs are stored for audit and compliance purposes</p>
+                <p className="text-sm font-medium text-slate-700">
+                  Activity Retention
+                </p>
+                <p className="text-xs text-slate-500">
+                  Logs are stored for audit and compliance purposes
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
