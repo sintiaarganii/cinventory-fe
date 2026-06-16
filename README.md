@@ -79,8 +79,8 @@ Aplikasi ini dirancang untuk meningkatkan efisiensi pengelolaan stok, mengurangi
 ## Installation
 
 ### Clone Repository
-https://github.com/sintiaarganii/cinventory-fe.git
-https://github.com/sintiaarganii/cinventory-be.git
+- https://github.com/sintiaarganii/cinventory-fe.git
+- https://github.com/sintiaarganii/cinventory-be.git
 
 ### Backend
 cd cinventory-be
