@@ -47,7 +47,6 @@ Aplikasi ini dirancang untuk meningkatkan efisiensi pengelolaan stok, mengurangi
 * Monitoring Aktivitas Sistem
 
 ## ERD (Entity Relationship Diagram)
-<img width="701" height="1651" alt="shema diagram cinventory" src="https://github.com/user-attachments/assets/29e0368c-98c3-4407-8f89-83c50de4d395" />
 ![ERD Cinventory](https://github.com/user-attachments/assets/29e0368c-98c3-4407-8f89-83c50de4d395)
 
 ## Tech Stack
