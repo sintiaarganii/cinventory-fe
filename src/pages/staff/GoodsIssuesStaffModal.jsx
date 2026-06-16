@@ -599,7 +599,7 @@ const GoodsIssuesStaffModal = ({
                       >
                         <option value="">Select Product</option>
                         {products
-                          .filter((prod) => prod.stock > 0) // Hanya tampilkan product dengan stok > 0
+                          .filter((prod) => prod.stock > 0)
                           .map((prod) => (
                             <option key={prod.id} value={prod.id}>
                               {prod.product_name} (Stock: {prod.stock}{" "}
